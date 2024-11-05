@@ -51,10 +51,10 @@ const TextEditor = () => {
             // console.log("Received document data:", documentData);
         
             // Parse the data field to extract ops
-            const documentDataParsed = JSON.parse(documentData.data);
+            const documentDataParsed = JSON.parse(documentData?.data);
             // console.log("Parsed document ops:", documentDataParsed.ops);
         
-            const contents = documentDataParsed.ops; // Now accessing ops from the parsed data
+            const contents = documentDataParsed?.ops; // Now accessing ops from the parsed data
         
             if (quill) {
                 quill.setContents(contents);
