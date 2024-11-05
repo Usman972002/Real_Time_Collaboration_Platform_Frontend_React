@@ -20,6 +20,7 @@ const TOOLBAR_OPTIONS = [
 const SAVE_INTERVAL_MS = 2000;
 
 const TextEditor = () => {
+  const BASEURL = import.meta.env.VITE_REACT_APP_BASEURL;
   const { id: documentId } = useParams();
   const [stompClient, setStompClient] = useState(null);
   const [quill, setQuill] = useState(null);
@@ -28,7 +29,7 @@ const TextEditor = () => {
   // Initialize STOMP client and set up subscriptions
   useEffect(() => {
     const client = new Client({
-      brokerURL: "https://real-time-collaboration-platform-backend.onrender.com:8080/websocket",
+      brokerURL: `${BASEURL}/websocket`,
       reconnectDelay: 5000,
       onConnect: () => {
         // console.log("Connected to WebSocket");
